@@ -1,3 +1,21 @@
+# Pycharm
+.idea/*
+
+
+# Data folders.
+data/*
+!data/.gitkeep 
+!data/iwildcam/
+results/*
+!results/.gitkeep 
+
+extr.yml
+notebooks/bias.ipynb
+notebooks/variance.ipynb
+notebooks/variance-proof.ipynb
+notebooks/bias-variance.ipynb
+smoothing_plots.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
