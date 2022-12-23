@@ -90,8 +90,6 @@ class StochasticSubgradientMethod(Optimizer):
         g = self.objective.get_batch_subgrad(self.weights, idx=idx)
         self.weights.requires_grad = False
         self.weights = self.weights - self.lr * g
-        # g = self.objective.get_batch_subgrad(self.weights, idx=idx)
-        # self.weights = self.weights - self.lr * g
         self.iter += 1
 
     def end_epoch(self):
@@ -248,9 +246,6 @@ class SLSVRG(Optimizer):
         n = objective.n
         self.objective = objective
         self.lr = lr
-        # self.weights = torch.zeros(
-        #     self.objective.d, requires_grad=True, dtype=torch.float64
-        # )
         # adjust for multiclass classification
         if objective.n_class:
             self.weights = torch.zeros(
