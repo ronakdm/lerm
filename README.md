@@ -7,10 +7,8 @@ This repository contains code and experiments for "Stochastic Algorithms for Spe
 Spectral risk objectives -- also called $L$-risks -- allow for learning systems to interpolate between optimizing average-case performance (as in empirical risk minimization) and worst-case performance on a task. This code repository implements algorithms that minimize these objectives for linear and multinomial logistic regression problems, handling problems such as non-smoothness and biasedness of standard (sub)gradient estimates. 
 
 We consider in particular optimization problems of the form
-$$
-\min_{w \in \mathbb{R}^d} \sum_{i=1}^n \sigma_i \ell_{(i)} (w),
-$$
-in which $\ell_i(w)$ denotes the loss of a model with weights $w \in \mathbb{R}^d$ on data instances $i$, $\ell_{(1)}(w) \leq \ldots leq \ell_{(n)}(w)$ denotes the *order statistics* of $\ell_1(W), \ldots, \ell_n(w)$, and $\sigma_1 \leq \ldots \leq \sigma_n$ are a set of non-decreasing weights that sum to one. This formulation contains the average ($\sigma_i = 1/n \forall i$) and the maximum ($\sigma_n = 1$) as special cases. These weights are often defined as an $n$-bin discretization of a continuous density $s$ (called a *spectrum*) defined on $(0, 1)$ with $\sigma_i = \int_{(i-1)/n}^{i/n} s(t) dt$. Examples of spectral risks with their associated $s$ function and $\sigma_i$ weights are plotted below, with the uniform spectrum corresponding to Empirical Risk Minimization (ERM).
+$$ \min_{w \in \mathbb{R}^d} \sum_{i=1}^n \sigma_i \ell_{(i)} (w), $$
+in which $\ell_i(w)$ denotes the loss of a model with weights $w \in \mathbb{R}^d$ on data instances $i$, $\ell_{(1)}(w) \leq \ldots \leq \ell_{(n)}(w)$ denotes the *order statistics* of $\ell_1(w), \ldots, \ell_n(w)$, and $\sigma_1 \leq \ldots \leq \sigma_n$ are a set of non-decreasing weights that sum to one. This formulation contains the average $(\sigma_i = 1/n \forall i)$ and the maximum $(\sigma_n = 1)$ as special cases. These weights are often defined as an $n$-bin discretization of a continuous density $s$ (called a *spectrum*) defined on $(0, 1)$ with $\sigma_i = \int_{(i-1)/n}^{i/n} s(t) dt$. Examples of spectral risks with their associated $s$ function and $\sigma_i$ weights are plotted below, with the uniform spectrum corresponding to Empirical Risk Minimization (ERM).
 
 ![Sigmas](figures/sigma.png)
 
@@ -86,12 +84,11 @@ Optimizers are implemented in `src/optim/algorithms.py`. Tools for data loading/
 
 If you find this code useful, or you use it in your research, please cite:
 ```
-@misc{https://doi.org/10.48550/arxiv.2212.04014,
-  doi = {TODO},
-  url = {TODO},
+@misc{https://doi.org/10.48550/arxiv.2212.05149,
+  doi = {10.48550/ARXIV.2212.05149},
+  url = {https://arxiv.org/abs/2212.05149},
   author = {Mehta, Ronak and Roulet, Vincent and Pillutla, Krishna and Liu, Lang and Harchaoui, Zaid},
-  keywords = {TODO},
-  title = {Stochastic Algorithms for Specral Risk Measures},
+  title = {Stochastic Optimization for Spectral Risk Measures},
   publisher = {arXiv},
   year = {2022},
   copyright = {arXiv.org perpetual, non-exclusive license}
